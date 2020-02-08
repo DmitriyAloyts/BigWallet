@@ -26,7 +26,7 @@ app.use(express.json());
 
 app.use(flash());
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: "SESSION_SECRET",
   resave: true,
   saveUninitialized: true
 }));
@@ -42,11 +42,15 @@ require("./routes/api-routes")(app);
 
 
   connection = mysql.createConnection({
-    host: process.env.host,
-    user: process.env.user,
-    password: process.env.password,
-    database: process.env.database
+    host: "mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "vhsvdlc1xoa0zj3d",
+    password: "btksu1fneqlaxl83",
+    database: "hvzauuvhg54dd366"
   });
+//   host=mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com
+// user=vhsvdlc1xoa0zj3d
+// password=btksu1fneqlaxl83
+// database=hvzauuvhg54dd366
 
 db.sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => {
